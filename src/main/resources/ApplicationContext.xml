@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+
+    <bean id="t1000" class="ru.kdv.t1000" scope="singleton"
+          p:hand-ref="toshibaHand"
+          p:head-ref="toshibaHead"
+          p:leg-ref="toshibaLeg"
+          p:color="red"
+          p:soundEnabled="true"
+          p:year="1999"
+          init-method="initMethod"
+          destroy-method="destroyMethod">
+
+        <!--<constructor-arg value="true" index="2" type="boolean"/>
+        <constructor-arg value="1998" index="1" type="int"/>
+        <constructor-arg value="red" index="0" type="java.lang.String"/>
+        &lt;!&ndash;<constructor-arg ref="toshibaHand"/>
+        <constructor-arg ref="toshibaLeg"/>
+        <constructor-arg ref="toshibaHead"/>&ndash;&gt;
+        <property name="hand" ref="toshibaHand"/>
+        <property name="leg" ref="toshibaLeg"/>
+        <property name="head" ref="toshibaHead"/>
+        <property name="soundEnabled" value="true"/>
+        <property name="color" value="red"/>
+        <property name="year" value="1998"/>-->
+    </bean>
+    <bean id="t1000Empty" class="ru.kdv.t1000" scope="singleton"
+          p:head-ref="toshibaHead"
+          p:leg-ref="toshibaLeg"
+          p:hand-ref="toshibaHand">
+    </bean>
+
+    <bean id="toshibaHead" class="ru.kdv.ToshibaHead"/>
+    <bean id="toshibaHand" class="ru.kdv.ToshibaHand"/>
+    <bean id="toshibaLeg" class="ru.kdv.ToshibaLeg"/>
+
+</beans>
